@@ -11,15 +11,16 @@ Simply treat DataFrame objects like tables, the default `SQL` engine in `sqldf` 
 # Examples
 
 ```julia 
+julia> using SQLDF
 
-julia > T = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
+julia> T = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
     
-julia > sqldf("""
-              SELECT * 
-              FROM T
-              WHERE a <= 5
-              ORDER BY  a
-              """)
+julia> sqldf("""
+             SELECT * 
+             FROM T
+             WHERE a <= 5
+             ORDER BY  a
+             """)
 5×3 DataFrame
  Row │ a      b      c      
      │ Int64  Int64  String 
