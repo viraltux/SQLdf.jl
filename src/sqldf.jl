@@ -16,14 +16,14 @@ Julia DataFrame with the results from R sqldf
 
 # Examples
 ```julia-repl
-julia> T = DataFrame([1 "a"; 2 "b"],[:C1,:C2]);
-julia> T[!,:C1] = convert.(Int64,T[!,:C1]);
-julia> T[!,:C2] = convert.(String,T[!,:C2]);
+julia> T = DataFrame(C1 = [1,2], C2 = ["a","b"])
+
 julia> query = \"""
                select * 
                from T
                where C2 = "a" 
                \""";
+
 julia> sqldf(query)
 1×2 DataFrame
  Row │ C1     C2     
@@ -43,12 +43,12 @@ function sqldf(query::String)::DataFrame
     tables = String[]
     nt = false
     for w in nq
-        nt = nt ? push!(tables,w)==0 : w in ["from","join"]
+        nt = nt ? push!(tables,w)==0 : lowercase(w) in ["from","join"]
     end
     
     # Prepare R
     for t in tables
-        Main.eval(Meta.parse("@rput "*t))
+        Main.eval(Main.Meta.parse("@rput "*t))
     end
 
     # Retrieve and Return
