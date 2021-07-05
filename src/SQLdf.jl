@@ -1,4 +1,4 @@
-module SQLDF
+module SQLdf
 
 using DataFrames, RCall
 
@@ -21,6 +21,6 @@ include("sqldf.jl")
 """
 Execute R sqldf via RCall and return a julia DataFrame.
 """
-SQLDF
+SQLdf
 
 end

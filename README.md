@@ -1,4 +1,4 @@
-# SQLDF
+# SQLdf
 
 This package is a Julia wrapper providing access to R sqldf library. Before using it [R needs to be
 installed](https://juliainterop.github.io/RCall.jl/stable/installation/) with sqldf within.

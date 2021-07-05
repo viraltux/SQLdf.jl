@@ -1,8 +1,8 @@
-using SQLDF
+using SQLdf
 using Test
 import DataFrames: DataFrame
 
-@testset "SQLDF.jl" begin
+@testset "SQLdf.jl" begin
     Main.eval(Meta.parse(""" x = DataFrame((a=1:14,  b=14:-1:1, c =split("Julia is great",""))) """))
     
     qr = sqldf("""

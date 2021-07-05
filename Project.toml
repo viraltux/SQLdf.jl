@@ -1,4 +1,4 @@
-name = "SQLDF"
+name = "SQLdf"
 uuid = "1d9d1391-8b3d-499a-a06e-5da8adbf6ef0"
 authors = ["Fran Urbano <viraltux@gmail.com> and contributors"]
 version = "0.1.0"

@@ -1,5 +1,5 @@
 """
-Package: SQLDF
+Package: SQLdf
 
     sqldf(query::String)::DataFrame
 
