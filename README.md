@@ -11,7 +11,7 @@ Simply treat DataFrame objects like tables, the default `SQL` engine in `sqldf` 
 # Examples
 
 ```julia 
-julia> using SQLDF
+julia> using SQLdf
 
 julia> T = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
     
