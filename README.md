@@ -14,6 +14,14 @@ Simply treat DataFrame objects like tables, the default `SQL` engine in `sqldf` 
 julia> using SQLdf
 
 julia> T = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
+
+julia> @sqldf "select count(*) from T"
+1×1 DataFrame
+ Row │ count(*) 
+     │ Int64    
+─────┼──────────
+   1 │       14
+
     
 julia> sqldf("""
              SELECT * 
