@@ -23,8 +23,8 @@ import DataFrames: DataFrame
 
     @test size(qr) == (1,3)
     @test qr[1,2] == 14
+
     Main.eval(Meta.parse(""" y = DataFrame((a=1:14, c=split("Julia is fast!",""))) """))
-    
 
     qr = sqldf("""
                select * 
@@ -35,5 +35,10 @@ import DataFrames: DataFrame
     @test qr[1,3] == "J"
     @test qr[1,5] == "J"
     @test qr[18,5] == "t"
+
+    q = "select * from x"
+    @test sqldf(q) == @sqldf q
+    @test sqldf("select * from x") == @sqldf "select * from x"
+
 end
 

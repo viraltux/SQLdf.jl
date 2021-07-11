@@ -30,6 +30,15 @@ julia> sqldf(query)
      │ Int64  String 
 ─────┼───────────────
    1 │     1  a
+
+julia> @sqldf query
+1×2 DataFrame
+ Row │ C1     C2     
+     │ Int64  String 
+─────┼───────────────
+   1 │     1  a
+
+
 ```
 """
 function sqldf(query::String)::DataFrame
@@ -67,4 +76,8 @@ function sqldf(query::String)::DataFrame
     R"gc()"
     
     return res
+end
+
+macro sqldf(query)
+    return :( sqldf($(esc(query))) )
 end

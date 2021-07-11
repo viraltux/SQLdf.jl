@@ -4,7 +4,7 @@ using DataFrames, RCall
 
 import DataFrames: DataFrame
 
-export sqldf, DataFrame, @rput
+export sqldf, @sqldf, DataFrame, @rput
 
 function __init__()
 
