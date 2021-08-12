@@ -11,6 +11,7 @@ SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
 [compat]
 DataFrames = "1"
 RCall = "0.13"
+SQLite = "1"
 julia = "1.6"
 
 [extras]
