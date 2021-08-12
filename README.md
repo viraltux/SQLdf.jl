@@ -16,13 +16,13 @@ Simply treat DataFrame objects (or any type implementing Tables.jl) like SQL tab
 
 ```julia 
 using SQLdf
-
-T = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
 ```
 
 ## Simple Queries on DataFrames
 
 ```julia 
+T = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
+
 @sqldf "select count(*) from T"
 1×1 DataFrame
  Row │ count(*) 
