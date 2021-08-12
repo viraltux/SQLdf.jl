@@ -1,16 +1,17 @@
 name = "SQLdf"
 uuid = "1d9d1391-8b3d-499a-a06e-5da8adbf6ef0"
 authors = ["Fran Urbano <viraltux@gmail.com> and contributors"]
-version = "0.1.1"
+version = "0.2.0"
 
 [deps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 RCall = "6f49c342-dc21-5d91-9882-a32aef131414"
+SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
 
 [compat]
 DataFrames = "1"
-julia = "1.6"
 RCall = "0.13"
+julia = "1.6"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
