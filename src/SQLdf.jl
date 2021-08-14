@@ -49,14 +49,14 @@ Package: SQLdf
 
 Execute a SQL query on julia DataFrames
 
-By default sqldf using SQLite however it can also connect to R/sqldf via setRDB("R/sqldf").
+By default sqldf uses SQLite however it can also connect to R/sqldf via setRDB("R").
 
-When using "R/sqldf" only DataFrame types are accepted  and columns in the DataFrame must 
+When using R/sqldf only DataFrame types are accepted and columns in the DataFrame must 
 have a type other than Any. In order to  work with dates expressions like 
 \"""select strftime("%Y", datetime_column, "unixepoch") as year from T\""" may be used.
 
 When using SQLite all types implementing Tables interface will be accepted, however sqldf 
-will still return and DataFrame if not default converstion can performed.
+will still return and DataFrame.
 
 # Arguments
 `query`: SQL query 
