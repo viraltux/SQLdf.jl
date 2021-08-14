@@ -4,7 +4,7 @@ This package allows SQL queries on any Julia type implementing the Table.jl inte
 
 Versions prior to 0.2.0 would use R/sqldf via RCall. Although this is still possible by executing setRDB("R") before using sqldf, the default SQL engine is SQLite from SQLite.jl. If the default RDB is changed to "R" it can be set to its default with setRDB("SQLite").
 
-The use setRDB("R") requires [R to be
+The use of setRDB("R") requires [R to be
 installed](https://juliainterop.github.io/RCall.jl/stable/installation/) with sqldf within.
 
 
