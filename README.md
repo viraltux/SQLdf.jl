@@ -21,9 +21,9 @@ using SQLdf
 ## Simple Queries on DataFrames
 
 ```julia 
-T = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
+DF = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
 
-@sqldf "select count(*) from T"
+@sqldf "select count(*) from DF"
 1×1 DataFrame
  Row │ count(*) 
      │ Int64    
@@ -33,7 +33,7 @@ T = DataFrame(a=1:14,  b=14:-1:1, c = split("Julia is great",""))
     
 sqldf("""
       SELECT * 
-      FROM T
+      FROM DF
       WHERE a <= 5
       ORDER BY  a
       """)
@@ -51,12 +51,12 @@ sqldf("""
 ## Join DataFrames Query
 
 ```julia 
-S = DataFrame((a=1:14, c=split("Julia is fast!","")))
+T = DataFrame((a=1:14, c=split("Julia is fast!","")))
 
 sqldf("""
       select * 
-      from T join S on T.b = S.a
-      order by T.a
+      from DF join T on DF.b = T.a
+      order by DF.a
       """)
 14×5 DataFrame
  Row │ a      b      c       a:1    c:1    
@@ -81,12 +81,12 @@ sqldf("""
 ## Join Query Types implementing Tables interface
 
 ```julia 
-using TimeSeries, Dates
+using TimeSeries
 
-dates = Date(2018, 1, 1):Day(1):Date(2018, 1, 14)
+dates = Date(2021, 1, 1):Day(1):Date(2021, 1, 14)
 TA = TimeArray(dates, 1:14)
 
-@sqldf "select * from TA join T where TA.A = T.a"
+@sqldf "select * from TA join DF where TA.A = DF.a"
 14×5 DataFrame
  Row │ timestamp   A      a:1    b      c      
      │ Date        Int64  Int64  Int64  String 
